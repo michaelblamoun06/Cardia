@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f7f4">
+<title>Cardia · Cardiopulmonary Anatomy Atlas</title>
+<link rel="manifest" href="atlas.webmanifest"><link rel="apple-touch-icon" href="assets/app-192.png"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="An interactive 3D atlas of the heart, blood vessels, lungs, and alveoli. Explore structures, follow pathways, and test your anatomy knowledge.">
+<link rel="stylesheet" href="records.css"><link rel="stylesheet" href="physiology-lab.css"><link rel="icon" href="assets/mark.svg"><link rel="preload" href="assets/inter.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="style.css">
+<script defer src="icons.js"></script><script defer src="heart.js"></script><script defer src="vessels.js"></script><script defer src="lungs.js"></script><script defer src="renderer.js"></script><script defer src="lessons.js"></script><script defer src="circulation-detail.js"></script><script defer src="pulmonary-detail.js"></script><script defer src="reference-data.js"></script><script defer src="reference-notes.js"></script><script defer src="reference-models.js"></script><script defer src="physiology-lab.js"></script><script defer src="expert-pathways.js"></script><script defer src="vendor/qrcode.js"></script><script defer src="sections.js"></script><script defer src="clinical.js"></script><script defer src="perfusion.js"></script><script defer src="learning.js"></script><script defer src="practical.js"></script><script defer src="atlas-views.js"></script><script defer src="atlas-tools.js"></script><script defer src="regional-context.js"></script><script defer src="app.js"></script>
+<link rel="stylesheet" href="sections.css"><link rel="stylesheet" href="clinical.css"><link rel="stylesheet" href="perfusion.css"><link rel="stylesheet" href="learning.css"><link rel="stylesheet" href="practical.css"><link rel="stylesheet" href="atlas-views.css"><link rel="stylesheet" href="workspace.css">
+</head>
+<body>
+<header class="sitehead">
+ <div class="bar">
+  <a class="brand" href="#explorer" aria-label="Cardia home"><img src="assets/mark.svg" alt=""><span>Cardia<span class="branddot">.</span></span></a><span class="brandtag">Anatomy Atlas</span>
+  <div class="mast-tools"><button class="atlas-find" data-action="global-search" title="Search the atlas (/)"><i data-icon="search"></i><span>Search atlas</span><kbd>/</kbd></button><button class="help ghost" data-action="classroom" aria-label="Classroom tools"><i data-icon="grid"></i><span>Classroom tools</span></button><button class="help ghost compact-guide" data-action="guide" aria-label="Quick guide"><i data-icon="help"></i></button></div>
+ </div>
+ <div class="workspace-nav"><nav aria-label="Main navigation"><button data-page="explorer" class="active"><i data-icon="cube"></i>Explorer</button><button data-page="sections"><i data-icon="layers"></i>Sections</button><button data-page="clinical"><i data-icon="search"></i>Clinical imaging</button><button data-page="physiology"><i data-icon="flow"></i>Physiology lab</button><button data-page="practical"><i data-icon="target"></i>Practice lab</button><button data-page="study"><i data-icon="cap"></i>Study room</button><button data-page="index"><i data-icon="library"></i>Structure index</button></nav></div>
+</header>
+<main>
+ <section id="explorer-page">
+ <header class="pageintro"><div><h1>Anatomy explorer</h1><p>Explore the structures and pathways of the heart, blood vessels, and lungs.</p></div><div class="intro-actions"><button class="solid open-sections" data-action="open-sections"><i data-icon="layers"></i><span>Heart slices</span></button><button class="outline saved" data-action="saved"><i data-icon="bookmark"></i>Saved structures<span class="saved-count">0</span></button></div></header>
+ <div class="workgrid">
+  <aside id="library-panel" class="panel library-panel">
+   <div class="panel-heading"><i data-icon="grid"></i><h2>Model library</h2></div>
+   <div class="models"><div class="group-label">Cardiovascular</div>
+    <button data-scene="heart" class="model-btn active"><span class="thumb red"><img src="assets/heart.webp" alt=""></span><span>Heart</span><i data-icon="chevron"></i></button>
+    <button data-scene="vessels" class="model-btn"><span class="thumb purple"><img src="assets/vessels.webp" alt=""></span><span>Blood vessels</span><i data-icon="chevron"></i></button>
+    <div class="group-label second">Pulmonary</div>
+    <button data-scene="lungs" class="model-btn"><span class="thumb teal"><img src="assets/lungs.webp" alt=""></span><span>Lungs &amp; airways</span><i data-icon="chevron"></i></button>
+    <button data-scene="alveoli" class="model-btn"><span class="thumb ochre"><img src="assets/alveoli.webp" alt=""></span><span>Alveoli</span><i data-icon="chevron"></i></button>
+   </div>
+   <div class="layer-block"><div class="panel-heading"><i data-icon="layers"></i><h2>Model layers</h2></div><div id="layers"></div></div>
+  </aside>
+  <section class="stage-shell" aria-label="Interactive 3D anatomy model">
+   <div class="model-sourcebar" id="model-sourcebar"></div>
+   <div class="stage" id="stage"><div class="model-status" role="status" id="model-status" hidden></div>
+    <div class="grid-paper"></div><div class="stage-info"><span class="eyebrow live"><span></span>3D VIEWPORT</span><h2 id="stage-title">Human heart</h2></div>
+    <button data-action="expand" class="stage-square expand" title="Expand model" aria-label="Expand model"><i data-icon="expand"></i></button>
+    <div id="canvas-wrap"><canvas id="model" tabindex="0" aria-label="Interactive three-dimensional anatomy model. Drag or use arrow keys to rotate. Plus and minus zoom."></canvas><svg class="callout-lines" aria-hidden="true"></svg><div class="callout-labels"></div></div>
+    <div class="stage-lower"><label class="view-select"><i data-icon="orientation"></i><select aria-label="Model orientation" id="orientation"><option>Anterior</option><option>Posterior</option><option>Left lateral</option><option>Right lateral</option><option hidden>Oblique</option></select><i data-icon="down"></i></label><div class="stage-chips"><button class="label-switch" id="reveal" data-action="reveal" aria-pressed="false" hidden><i data-icon="layers"></i>Dissect</button><button class="label-switch enabled" data-action="labels" aria-pressed="true"><i data-icon="tag"></i>Labels</button></div></div>
+   </div>
+   <div class="canvas-tools"><div class="tools-group"><button class="tool active" data-action="orbit" title="Rotate model" aria-label="Rotate model"><i data-icon="orbit"></i></button><button class="tool" data-action="pan" title="Pan model" aria-label="Pan model"><i data-icon="hand"></i></button><span class="divider"></span><button class="tool" data-action="zoomin" title="Zoom in" aria-label="Zoom in"><i data-icon="zoomin"></i></button><button class="tool" data-action="zoomout" title="Zoom out" aria-label="Zoom out"><i data-icon="zoomout"></i></button><button class="tool" data-action="reset" title="Reset view" aria-label="Reset view"><i data-icon="reset"></i></button></div><span class="drag-hint"><i data-icon="mouse"></i>Drag to rotate</span></div>
+   <div id="atlas-view-options"></div>
+  </section>
+  <aside class="panel details-panel"><div class="panel-heading details-heading"><i data-icon="info"></i><h2>Structure details</h2></div><div id="detail"></div></aside>
+ </div>
+ <div id="tour" hidden></div>
+ <section class="guided"><div class="section-head"><div><span class="eyebrow section-label"><span></span>GUIDED LEARNING</span><h2>Follow a pathway</h2></div><button class="text-btn" data-action="all-paths">View all pathways<i data-icon="chevron"></i></button></div><div id="pathway-cards" class="pathway-cards"></div></section>
+ </section>
+ <section id="sections-page" hidden></section><section id="clinical-page" hidden></section><section id="practical-page" hidden></section><section id="index-page" hidden></section><section id="physiology-page" hidden></section><section id="study-page" hidden></section>
+ <footer><span><img src="assets/mark.svg" alt="">Cardia Anatomy Atlas</span><button data-action="references">Model notes &amp; references<i data-icon="book"></i></button></footer>
+</main>
+<dialog id="dialog"><div class="dialog-title"><h2 id="dialog-title"></h2><button class="ghost square" data-action="close" aria-label="Close dialog"><i data-icon="x"></i></button></div><div id="dialog-body"></div></dialog>
+<div id="announce" role="status" class="sr-only"></div>
+</body></html>

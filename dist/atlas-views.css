@@ -1,0 +1,36 @@
+#atlas-view-options{flex:none;background:#202a33;color:#e8eeed;border-top:1px solid #39434b}
+.av-controls{font-size:.875rem;line-height:1.4}
+.av-controls summary{display:flex;align-items:center;gap:.55rem;cursor:pointer;padding:.72rem 1rem;font-weight:600;color:#e1e7e6;list-style:none}
+.av-controls summary::-webkit-details-marker{display:none}
+.av-controls summary>svg{color:#b6c7c7;flex:none}
+.av-caret{margin-left:auto;width:.48rem;height:.48rem;border:solid #bbc6ca;border-width:0 1.5px 1.5px 0;transform:rotate(45deg);margin-right:.15rem;margin-bottom:.2rem}
+.av-controls[open] .av-caret{transform:rotate(225deg);margin-bottom:-.2rem}
+.av-content{display:grid;gap:.75rem;padding:.2rem 1rem 1rem}
+.av-row{display:flex;justify-content:space-between;align-items:center;gap:.75rem}
+.av-slider{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.14rem}
+.av-slider input{grid-column:1/-1;width:100%;accent-color:#eab098;cursor:pointer}
+.av-slider output{font-variant-numeric:tabular-nums;color:#c4d0d2;font-size:.82rem}
+.av-slider input:disabled{opacity:.45;cursor:auto}
+.av-segment{display:flex;gap:.15rem;padding:.15rem;border:1px solid #56616a;background:#182129;border-radius:5px}
+.av-controls .av-segment button,.av-controls select{color:#dae4e4;background:#25313a;padding:.3rem .55rem;font:inherit;line-height:1.2}
+.av-controls .av-segment button{border:none;border-radius:3px}
+.av-controls .av-segment button[aria-pressed=true]{background:#4c5c65;color:#fff}
+.av-controls .av-segment button:disabled{color:#919b9f;cursor:default}
+.av-controls select{border:1px solid #57636b;border-radius:5px;max-width:64%;min-height:2rem;color-scheme:dark}
+.av-note{margin:-.5rem 0 0!important;color:#b4c1c5!important;font-size:.79rem!important;line-height:1.45}
+.av-key{display:flex;flex-wrap:wrap;gap:.4rem .85rem}
+.av-key span{display:inline-flex;align-items:center;gap:.35rem;color:#d6dfe0;font-size:.79rem}
+.av-key span::before{content:"";width:.57rem;height:.57rem;border-radius:50%;background:var(--av-color)}
+.av-controls [hidden]{display:none!important}
+.av-toggle{width:2.15rem;height:1.25rem;border:1px solid #75818a;background:#35414a;border-radius:12px;padding:2px;display:flex;align-items:center;cursor:pointer}
+.av-toggle span{width:.8rem;height:.8rem;border-radius:50%;background:#dce4e4}
+.av-toggle[aria-checked=true]{background:#e1a78e;border-color:#e1a78e;justify-content:flex-end}
+.av-toggle[aria-checked=true] span{background:#16252b}
+.av-controls :is(summary,button,select,input):focus-visible{outline:2px solid #f2cdb5;outline-offset:3px}
+.stage-shell.expanded .av-content{max-height:35dvh;overflow-y:auto}
+[data-anatomy-palette=category]{--av-arteries:#e86550;--av-veins:#668fcb;--av-airways:#78b7a2;--av-tissue:#d89c8e}
+[data-anatomy-palette=contrast]{--av-arteries:#f3a547;--av-veins:#69bded;--av-airways:#77d7ac;--av-tissue:#c698cf}
+html:is([data-anatomy-palette=category],[data-anatomy-palette=contrast]) [data-layer=arteries] .color-dot{--swatch:var(--av-arteries)!important}
+html:is([data-anatomy-palette=category],[data-anatomy-palette=contrast]) [data-layer=veins] .color-dot{--swatch:var(--av-veins)!important}
+html:is([data-anatomy-palette=category],[data-anatomy-palette=contrast]) [data-layer=airways] .color-dot{--swatch:var(--av-airways)!important}
+html:is([data-anatomy-palette=category],[data-anatomy-palette=contrast]) [data-layer=tissue] .color-dot{--swatch:var(--av-tissue)!important}
