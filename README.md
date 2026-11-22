@@ -4,7 +4,7 @@ Cardia is a static web app for exploring cardiopulmonary anatomy and physiology.
 
 ## Run locally
 
-From the extracted project folder, run `python3 -m http.server 8000 --directory dist` and open http://localhost:8000. Serving the files over HTTP lets the app load its 3D models and scan assets.
+From the extracted project folder, run `python3 -m http.server 8000 --directory dist` and open http://cardia.localhost:8000/#explorer.Serving the files over HTTP lets the app load its 3D models and scan assets.
 
 ## Transfer to GitHub
 
